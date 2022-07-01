@@ -20,11 +20,12 @@ mongoose.connection.on("Disconnected", () => {
 })
 
 app.use(cors());
+
 app.use(express.json());
 
 app.use("/api/post", postRouter);
 
-app.use((err, req, res, next) => { 
+app.use((err, req, res, next) => {
     const errorStatus = err.status || 500;
     const errorMessage = err.message || 500;
     res.status(err).json({
