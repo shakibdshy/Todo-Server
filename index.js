@@ -38,5 +38,6 @@ app.use((err, req, res, next) => {
 })
 
 app.listen(port, () => {
+    connect();
     console.log(`Server running on port ${port}`);
 })

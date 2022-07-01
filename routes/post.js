@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
         const savePost = await newPost.save();
         res.status(200).json(savePost);
     } catch (error) {
-        res.status(500).json(err);
+        res.status(500).json(error);
     }
 });
 // Update
@@ -32,7 +32,7 @@ router.delete('/:id', async (req, res) => {
         const postDelete = await Post.findByIdAndDelete(req.params.id);
         res.status(200).json({success : true});
     } catch (error) {
-        res.status(500).json({succss : false, error : error.message})
+        res.status(500).json({ success : false, error : error.message})
     }
 });
 
